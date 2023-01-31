@@ -99,7 +99,7 @@ public class App {
                     System.out.println("No se puede mover");
                 } else {
                     tablero[X][Y] = 'L';
-                    tablero[X ][Y + 1] = personaje;
+                    tablero[X ][Y - 1] = personaje;
                 }
                 break;
             case 'W':
@@ -119,11 +119,11 @@ public class App {
                 }
                 break;
             case 'E':
-                if (X == 4 || Y == 0) {
+                if (X == 0 || Y == 4) {
                     System.out.println("No se puede mover");
                 } else {
                     tablero[X][Y] = 'L';
-                    tablero[X + 1][Y - 1] = personaje;
+                    tablero[X - 1][Y + 1] = personaje;
                 }
                 break;
             case 'Q':
@@ -147,7 +147,7 @@ public class App {
                     System.out.println("No se puede mover");
                 } else {
                     tablero[X][Y] = 'L';
-                    tablero[X - 1][Y + 1] = personaje;
+                    tablero[X + 1][Y - 1] = personaje;
                 }
                 break;
         }
@@ -174,7 +174,18 @@ public class App {
             System.out.println("Mueve");
             char movimiento = teclado.next().charAt(0);
             movimiento(movimiento, tablero1);
+            mostrarTablero(tablero1);
             ganado = ganar(tablero1);
+
+            System.out.println("--Tablero2--");
+            mostrarTablero(tablero2);
+            System.out.println("Mueve");
+            movimiento = teclado.next().charAt(0);
+            movimiento(movimiento, tablero2);
+            mostrarTablero(tablero2);
+            ganado = ganar(tablero2);
+
+
         }
     }
 }
